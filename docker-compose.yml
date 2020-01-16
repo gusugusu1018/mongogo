@@ -7,8 +7,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports:
-      - 27017:27017
     volumes:
       - user-volume:/data/db
 
@@ -36,6 +34,8 @@ services:
       MONGODB_ADMIN_NAME: root
       MONGODB_ADMIN_PASS: example
       WAIT_HOSTS: user-db:27017
+      GIN_MODE: release
+      PORT: 3006
     depends_on:
       - user-db
     links:

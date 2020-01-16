@@ -3,18 +3,14 @@ version: '3'
 services:
   user-db:
     image: mongo:4.2
-    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports:
-      - 27017:27017
     volumes:
       - user-volume:/data/db
 
   mongo-express:
     image: mongo-express:latest
-    restart: always
     ports:
       - 3005:8081
     environment:
@@ -30,12 +26,13 @@ services:
       context: ./
       dockerfile: Dockerfile-dev
     image: gusugusu1018/mongogo/api:dev
-    restart: always
     environment:
       MONGODB_URL: mongodb://user-db:27017
       MONGODB_ADMIN_NAME: root
       MONGODB_ADMIN_PASS: example
       WAIT_HOSTS: user-db:27017
+      GIN_MODE: debug
+      PORT: 3006
     depends_on:
       - user-db
     links:

@@ -1,4 +1,5 @@
 #!/bin/sh
+cd ..
 compose_file_path=docker-compose.yml
 project_name=user-volume
 backup_path=./backup
