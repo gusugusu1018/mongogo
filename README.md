@@ -1,46 +1,55 @@
-# check current direcotry
+# mongogo
+## environment
+* docker
+* docker-compose
+* golang
+* mongodb
+* dep
+* mongo-driver
+
+## check current direcotry
 
 ```
 $ basename $(pwd)
 mongogo
 ```
 
-# build image
+## build image
 
 ```
 $ docker-compose build
 ```
 
-# run cluster
+## run cluster
 
 ```
 $ docker-compose up -d
 ```
 
-# run cluster
+## run cluster
 
 ```
 $ docker-compose stop
 ```
 
-# push to gitlab container registory
+## push to gitlab container registory
 ```
 $ docker-compose push
 ```
 
-# build for development
+## build for development
 
 ```
 $ docker-compose -f docker-compose-dev.yml build
 ```
 
-# run cluster
+## run cluster
 
 ```
 $ docker-compose -f docker-compose-dev.yml up -d
 ```
 
-# run cluster
+## run cluster
 
 ```
 $ docker-compose -f docker-compose-dev.yml stop
