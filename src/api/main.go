@@ -24,13 +24,13 @@ func main() {
 		log.Fatal(err)
 	}
 	// connect
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	err = client.Connect(ctx)
+	ctx, _ := context.WithTimeout(context.Background(), 30*time.Second)
 	if err != nil {
+		err = client.Connect(ctx)
 		log.Fatal(err)
 	}
 	// Check the connection
-	ctx, _ = context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, _ = context.WithTimeout(context.Background(), 10*time.Second)
 	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		log.Fatal(err)
