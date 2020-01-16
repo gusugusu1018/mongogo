@@ -25,22 +25,6 @@ services:
     links:
       - user-db:mongo
 
-  mongo-go:
-    build:
-      context: ./
-      dockerfile: Dockerfile-dev
-    image: gusugusu1018/mongogo/api:dev
-    restart: always
-    environment:
-      MONGODB_URL: mongodb://user-db:27017
-      MONGODB_ADMIN_NAME: root
-      MONGODB_ADMIN_PASS: example
-      WAIT_HOSTS: user-db:27017
-    depends_on:
-      - user-db
-    links:
-      - user-db:mongo
-
 volumes:
   user-volume:
     driver: local
